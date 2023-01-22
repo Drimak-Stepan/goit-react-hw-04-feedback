@@ -29,7 +29,7 @@ class App extends Component {
       return 0;
     }
     const value = this.state[propName];
-    const result = ((value / total) * 100).toFixed(2);
+    const result = ((value / total) * 100).toFixed(0);
     return Number(result);
   };
 
@@ -42,7 +42,7 @@ class App extends Component {
       <div>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={options}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.onLeaveFeedback}
           />
         </Section>
