@@ -3,7 +3,6 @@ import Statistics from './Statistics';
 import FeedbackOptions from './FeedbackOptions';
 import Section from './Section';
 
-const options = ['good', 'neutral', 'bad'];
 class App extends Component {
   state = {
     good: 0,
@@ -29,7 +28,7 @@ class App extends Component {
       return 0;
     }
     const value = this.state[propName];
-    const result = ((value / total) * 100).toFixed(0);
+    const result = ((value / total) * 100).toFixed();
     return Number(result);
   };
 
