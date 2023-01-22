@@ -47,7 +47,7 @@ class App extends Component {
           />
         </Section>
 
-        <Section title="Statistics">  total !== 0 ? (<Statistics
+        <Section title="Statistics">  {total !== 0 ? (<Statistics
             good={good}
             neutral={neutral}
             bad={bad}
@@ -56,7 +56,7 @@ class App extends Component {
           />
     
   ) : (<Notification message="There is no feedback" />
-    );
+    );}
         </Section>
       </div>
     );
