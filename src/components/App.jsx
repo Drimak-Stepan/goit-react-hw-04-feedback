@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Statistics from './Statistics';
 import FeedbackOptions from './FeedbackOptions';
 import Section from './Section';
+import Notification from './Notification';
 
-const options = ['good', 'neutral', 'bad'];
 class App extends Component {
   state = {
     good: 0,
@@ -29,7 +29,7 @@ class App extends Component {
       return 0;
     }
     const value = this.state[propName];
-    const result = ((value / total) * 100).toFixed(2);
+    const result = ((value / total) * 100).toFixed();
     return Number(result);
   };
 
@@ -42,19 +42,21 @@ class App extends Component {
       <div>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={options}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.onLeaveFeedback}
           />
         </Section>
 
-        <Section title="Statistics">
-          <Statistics
+        <Section title="Statistics">  {total !== 0 ? (<Statistics
             good={good}
             neutral={neutral}
             bad={bad}
             total={total}
             positivePercentage={positivePercentage}
           />
+    
+  ) : (<Notification message="There is no feedback" />
+    )}
         </Section>
       </div>
     );

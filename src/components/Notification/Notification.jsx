@@ -5,6 +5,6 @@ const Notification = ({ message }) => {
 };
 export default Notification;
 
-Notification.prototypes = {
-  title: PropTypes.string.isRequired,
+Notification.propTypes = {
+  message: PropTypes.string.isRequired,
 };
