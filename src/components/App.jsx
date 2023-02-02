@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import Statistics from './Statistics';
 import FeedbackOptions from './FeedbackOptions';
 import Section from './Section';
@@ -13,7 +14,7 @@ const App = () => {
 
   const total = feedback.good + feedback.neutral + feedback.bad;
 
-  const calcPositivePercentage = name => {
+  const calcPercentage = name => {
     if (!total) {
       return 0;
     }
@@ -22,7 +23,7 @@ const App = () => {
     return Number(result);
   };
 
-  const positivePercentage = calcPositivePercentage('good');
+  const positivePercentage = calcPercentage('good');
 
   const onLeaveFeedback = name => {
     setFeedback(prevState => {
@@ -41,7 +42,6 @@ const App = () => {
       </Section>
 
       <Section title="Statistics">
-        {' '}
         {total !== 0 ? (
           <Statistics
             good={feedback.good}
